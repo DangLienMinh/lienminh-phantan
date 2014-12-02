@@ -1,0 +1,44 @@
+<?php
+
+use Doctrine\Common\ClassLoader,
+    Doctrine\ORM\Tools\Setup,
+    Doctrine\ORM\EntityManager;
+
+class Doctrine
+{
+    public $em;
+
+    public function __construct()
+    {
+        require_once __DIR__ . '/Doctrine/ORM/Tools/Setup.php';
+        Setup::registerAutoloadDirectory(__DIR__);
+
+        // Load the database configuration from CodeIgniter
+        require APPPATH . 'config/database.php';
+
+        $connection_options = array(
+            'driver'        => 'oci8',
+            'dbname'       => 'orcl',
+            'user'          => $db['oracle']['username'],
+            'password'      => $db['oracle']['password'],
+            'charset'       => $db['oracle']['char_set'],
+            'driverOptions' => array(
+                'charset'   => $db['oracle']['char_set'],
+            ),
+        );
+
+        // With this configuration, your model files need to be in application/models/Entity
+        // e.g. Creating a new Entity\User loads the class from application/models/Entity/User.php
+        $models_namespace = 'Entity';
+        $models_path = APPPATH . 'models';
+        $proxies_dir = APPPATH . 'models/Proxies';
+        $metadata_paths = array(APPPATH . 'models');
+
+        // Set $dev_mode to TRUE to disable caching while you develop
+        $config = Setup::createAnnotationMetadataConfiguration($metadata_paths, $dev_mode = true, $proxies_dir);
+        $this->em = EntityManager::create($connection_options, $config);
+
+        $loader = new ClassLoader($models_namespace, $models_path);
+        $loader->register();
+    }
+}

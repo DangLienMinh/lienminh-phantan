@@ -1,0 +1,17 @@
+body{
+	width: 50%;
+	margin: 0 auto;
+	font-family: Helvetica, Arial, 'lucida grande',tahoma,verdana,arial,sans-serif;
+    font-size: 13px;
+}
+
+input{
+	padding-bottom: 5px;
+margin-bottom: 7px;
+}
+
+.money {
+    color: #F00;
+    font-weight: bold;
+    font-size: 20px;
+}
