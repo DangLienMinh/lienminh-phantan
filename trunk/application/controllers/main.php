@@ -6,7 +6,7 @@ class Main extends CI_Controller {
         parent::__construct();
     }
 
-	function guiTien()
+	/*function guiTien()
 	{
 		$this->smarty->view('guiTien');
 	}
@@ -14,6 +14,19 @@ class Main extends CI_Controller {
 	function khachHang()
 	{
 		$this->smarty->view('QLKhachHang');
+	}*/
+
+	function guiTien()
+	{
+		$this->smarty->assign('guiTien',site_url('main/guiTien'));
+		$this->smarty->assign('khachHang',site_url('main/khachHang'));
+		$this->smarty->view('index');
+	}
+	function khachHang()
+	{
+		$this->smarty->assign('guiTien',site_url('main/guiTien'));
+		$this->smarty->assign('khachHang',site_url('main/khachHang'));
+		$this->smarty->view('manageCustomer');
 	}
 
 	

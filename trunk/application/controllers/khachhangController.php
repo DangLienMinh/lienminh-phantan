@@ -17,7 +17,7 @@ class KhachhangController extends CI_Controller {
         $ds = "";
         if (count($result) > 0) {
             foreach ($result as $k) {
-                $ds .= '<tr><td class="ma">'.$k['makh'].'</td><td class="ten">'.$k['tenkh'].'</td><td class="dc">'.$k['diachi'].'</td><td class="dt">'.$k['dienthoai'].'</td><td class="cmnd">'.$k['cmnd'].'</td><td class="tt">'.$k['tongtien'].'</td><td><a class="suaButton" href="#" rel="'.$k['makh'].'">Sửa</a>&nbsp;&nbsp;&nbsp;<a href="#" class="xoaButton" rel="'.$k['makh'].'">Xoá</a></td></tr>';
+                $ds .= '<tr><td class="ma">'.$k['makh'].'</td><td class="ten">'.$k['tenkh'].'</td><td class="dc">'.$k['diachi'].'</td><td class="dt">'.$k['dienthoai'].'</td><td class="cmnd">'.$k['cmnd'].'</td><td class="tt">'.$k['tongtien'].'</td><td><a class="suaButton" href="#" rel="'.$k['makh'].'"></a><a href="#" class="xoaButton" rel="'.$k['makh'].'"></a></td></tr>';
             }
         }
         echo $ds;
@@ -29,7 +29,7 @@ class KhachhangController extends CI_Controller {
         $user    = new Entity\KhachhangDAO($em);
         $result  = $user->layKhachhang($makh);
         foreach ($result as $k) {
-            echo $k['TONGTIEN'];
+            echo number_format($k['TONGTIEN'],"0",",",".")." vnđ";
         }
     }
 

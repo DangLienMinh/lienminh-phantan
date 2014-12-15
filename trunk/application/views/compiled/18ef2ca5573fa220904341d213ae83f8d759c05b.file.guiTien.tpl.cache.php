@@ -1,3 +1,5 @@
+<?php /* Smarty version Smarty-3.1.18, created on 2014-12-15 12:46:40
+         compiled from "application\views\templates\guiTien.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:5311548eca20ab4d76-22268347%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -10,26 +12,34 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     ),
   ),
   'nocache_hash' => '5311548eca20ab4d76-22268347',
+  'function' => 
+  array (
+  ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_548eca20ca6c00_73595202',
-  'cache_lifetime' => 120,
-),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_548eca20ca6c00_73595202')) {function content_548eca20ca6c00_73595202($_smarty_tpl) {?><!DOCTYPE html>
+  'unifunc' => 'content_548eca20c3f641_58970369',
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_548eca20c3f641_58970369')) {function content_548eca20c3f641_58970369($_smarty_tpl) {?><!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="http://localhost:81/QLNganHang/assets/css/jquery-ui.css">
-	<link rel="stylesheet" type="text/css" href="http://localhost:81/QLNganHang/assets/css/style.css">
-	<script type="text/javascript" src="http://localhost:81/QLNganHang/assets/js/jquery-2.1.1.min.js"></script>
-	<script type="text/javascript" src="http://localhost:81/QLNganHang/assets/js/jquery-ui.js"></script>
-  <script type="text/javascript" src="http://localhost:81/QLNganHang/assets/js/jquery.price_format.2.0.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="<?php echo asset_url();?>
+css/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo asset_url();?>
+css/style.css">
+	<script type="text/javascript" src="<?php echo asset_url();?>
+js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="<?php echo asset_url();?>
+js/jquery-ui.js"></script>
+  <script type="text/javascript" src="<?php echo asset_url();?>
+js/jquery.price_format.2.0.min.js"></script>
 	<script>
    
   function getTongTien(makh){
     $.ajax({
               type: "POST",
       
-              url: "http://localhost:81/QLNganHang/khachhangController/layTongTien",
+              url: "<?php echo base_url('khachhangController/layTongTien');?>
+",
       
           data: 'makh='+makh,
               success: function(data) {
@@ -47,7 +57,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     $.ajax({
               type: "POST",
       
-              url: "http://localhost:81/QLNganHang/giaodichController/tinhTrangGiaoDich",
+              url: "<?php echo base_url('giaodichController/tinhTrangGiaoDich');?>
+",
       
           data: 'makh='+makh,
               success: function(data) {
@@ -80,7 +91,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
               type: "POST",
               dataType: 'json',
       
-              url: "http://localhost:81/QLNganHang/giaodichController/guiTien",
+              url: "<?php echo base_url('giaodichController/guiTien');?>
+",
       
           data: dataString,
               success: function(data) {
@@ -113,7 +125,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
               type: "POST",
               dataType: 'json',
       
-              url: "http://localhost:81/QLNganHang/giaodichController/rutTien",
+              url: "<?php echo base_url('giaodichController/rutTien');?>
+",
       
           data: dataString,
               success: function(data) {
@@ -148,7 +161,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
               type: "POST",
               dataType: 'json',
       
-              url: "http://localhost:81/QLNganHang/giaodichController/chuyenTien",
+              url: "<?php echo base_url('giaodichController/chuyenTien');?>
+",
       
           data: dataString,
               success: function(data) {
@@ -190,7 +204,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   <title>CSDL PT QL NGÂN HÀNG</title>
 </head>
 <body>
-	<div class="error"></div>
+	<div class="error"><?php echo validation_errors();?>
+</div>
 <div id="tabs">
   <ul>
     <li><a href="#tabs-1">Gửi tiền</a></li>
