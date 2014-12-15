@@ -6,14 +6,14 @@ class GiaodichController extends CI_Controller {
 
     function tinhTrangGiaoDich(){
         $makh = $_POST["makh"];
-        $kq="<h1>Giao dịch ".$makh."</h1><table border='1'><tr><th>Mã chi nhánh</th><th>Mã khách hàng</th><th>Ngày giao dịch</th><th>Số tiền</th><th>Loại giao dịch</th></tr>";
+        $kq="<h2>Giao dịch ".$makh.'</h2><div class="table-responsive"><table class="table table-bordered  table-hover table-striped"><thead><tr><th style="width: 30px;">Mã CN</th><th style="width: 30px">Mã KH</th><th style="width: 25%">Ngày giao dịch</th><th style="width: 20%">Số tiền</th><th style="width: 20%">Loại giao dịch</th></tr></thead><tbody>';
         $em      = $this->doctrine->em;
         $giaodich    = new Entity\GiaodichDAO($em);
         $result  = $giaodich->tinhTrangGiaoDich($makh);
         foreach ($result as $k) {
-            $kq.='<tr><td>'.$k['MACN'].'</td><td>'.$k['MAKH'].'</td><td>'.$k['NGAYGD'].'</td><td>'.$k['SOTIENGD'].'</td><td>'.$k['LOAIGD'].'</td></tr>';
+            $kq.='<tr><td>'.$k['MACN'].'</td><td>'.$k['MAKH'].'</td><td>'.$k['NGAY'].'</td><td>'.number_format($k['SOTIENGD'],"0",",",".")." vnđ".'</td><td>'.$k['LOAIGD'].'</td></tr>';
         }
-        $kq.="</table>";
+        $kq.="</tbody></table></div>";
         echo $kq;
     }
 

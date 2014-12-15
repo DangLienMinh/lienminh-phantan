@@ -30,12 +30,12 @@ class GiaodichDAO
         $sth->execute();
         $result="";
         if($cn==1){
-            $sth = $cnn->prepare("SELECT macn,makh,sotiengd,ngaygd,loaigd FROM Giaodich where makh=? order by ngaygd DESC");
+            $sth = $cnn->prepare("SELECT macn,makh,sotiengd,to_char(ngaygd, 'dd/mm/yyyy hh:mi:ss am') ngay,loaigd FROM Giaodich where makh=? order by ngaygd DESC");
             $sth->bindValue(1, $makh);
             $sth->execute();
             $result = $sth->fetchAll();
         }else{
-            $sth = $cnn->prepare('SELECT macn,makh,sotiengd,ngaygd,loaigd FROM hien_nh.Giaodich@"DBL_CN2" where makh=? order by ngaygd DESC');
+            $sth = $cnn->prepare('SELECT macn,makh,sotiengd,to_char(ngaygd, "dd/mm/yyyy hh:mi:ss am") ngay,loaigd FROM hien_nh.Giaodich@"DBL_CN2" where makh=? order by ngaygd DESC');
             $sth->bindValue(1, $makh);
             $sth->execute();
             $result = $sth->fetchAll();
